@@ -48,10 +48,9 @@ class Sentry:
     def user_info(self, request: Request):
         return {
             'id': None,
-            'username': request.context.get('user'),
             'email': None,
+            'username': request.context.get('user'),
             'ip_address': self.guess_ip(request),
-            'optional': None,
         }
 
     def guess_ip(self, request: Request):
