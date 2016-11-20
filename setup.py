@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='hug_raven',
-    version='1.0.1',
+    version='1.1.0',
     description='Hug integration for Sentry',
     url='https://github.com/banteg/hug_raven',
     author='banteg',

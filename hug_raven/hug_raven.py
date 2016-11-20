@@ -7,12 +7,13 @@ from raven.utils.wsgi import get_environ
 
 
 class Sentry:
-    def __init__(self, api: hug.API, client: Client = None, **kwargs):
-        self.api = api
+    def __init__(self, api: hug.API = None, client: Client = None, **kwargs):
         self.client = Client(**kwargs) if client is None else client
-        self.mount()
+        if api:
+            self.mount(api)
 
-    def mount(self):
+    def mount(self, api):
+        self.api = api
         hug.exception(api=self.api)(self.handle)
 
     def unmount(self):
